@@ -1,0 +1,11 @@
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\duqiu.csproj.ResolveComReference.cache
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.FormAddall.resources
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.FromAdd.resources
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form1.resources
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+D:\项目\QT程序测试代码\vshelloworld\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\duqiu.csproj.GenerateResource.Cache
