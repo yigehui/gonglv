@@ -23,9 +23,9 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             PropertyUtil util = new PropertyUtil();
-            Gonshi gonshi = new Gonshi(PropertyUtil.StringToDouble(textBox1.Text), PropertyUtil.StringToDouble(textBox2.Text), PropertyUtil.StringToDouble(textBox3.Text), PropertyUtil.StringToDouble(textBox4.Text));
+            Gongshi gonshi = new Gongshi(PropertyUtil.StringToDouble(textBox1.Text), PropertyUtil.StringToDouble(textBox2.Text), PropertyUtil.StringToDouble(textBox3.Text), PropertyUtil.StringToDouble(textBox4.Text));
             //Console.WriteLine(gongsi.ToString());
-
+           
           DataGridView d = (DataGridView)form1.Controls.Find("dataGridView1", false)[0];
             Console.WriteLine(PropertyUtil.GetId());
             util.addDateToDateGrid(d, gonshi);

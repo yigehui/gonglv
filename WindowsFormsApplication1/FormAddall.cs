@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
                 foreach (String temp in textBox1.Lines) {
                     if (!temp.Trim().Equals("")) {
                         String[] result = temp.Split('\t');
-                        Gonshi gonshi = new Gonshi(PropertyUtil.StringToDouble(result[0].Trim()), PropertyUtil.StringToDouble(result[1].Trim()), PropertyUtil.StringToDouble(result[2].Trim()), PropertyUtil.StringToDouble(result[3].Trim()));
+                        Gongshi gonshi = new Gongshi(PropertyUtil.StringToDouble(result[0].Trim()), PropertyUtil.StringToDouble(result[1].Trim()), PropertyUtil.StringToDouble(result[2].Trim()), PropertyUtil.StringToDouble(result[3].Trim()));
                         util.addDateToDateGrid(d, gonshi);
                     }
                    

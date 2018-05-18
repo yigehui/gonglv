@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1.Util
         /// </summary>
         /// <param name="d"></param>
         /// <param name="gongsi"></param>
-        public void addDateToDateGrid(DataGridView d, Gonshi gongsi) {
+        public void addDateToDateGrid(DataGridView d, Gongshi gongsi) {
             DataGridViewRow row = new DataGridViewRow();
             int index = d.Rows.Add(row);
             for (int i = 0; i < d.Rows[0].Cells.Count; i++)
@@ -238,6 +238,45 @@ namespace WindowsFormsApplication1.Util
         }
 
         #endregion
+
+        /// <summary>
+        /// 读取对象的属性
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static string getProperties<T>(T t)
+        {
+            string tStr = string.Empty;
+            if (t == null)
+            {
+                return tStr;
+            }
+            System.Reflection.PropertyInfo[] properties = t.GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
+
+            if (properties.Length <= 0)
+            {
+                return tStr;
+            }
+            string[] field = new string[properties.Length];
+            string[] fieldvalue = new string[properties.Length];
+            int i = 0;
+            foreach (System.Reflection.PropertyInfo item in properties)
+            {
+                string name = item.Name;
+                object value = item.GetValue(t, null);
+                if (item.PropertyType.IsValueType || item.PropertyType.Name.StartsWith("String"))
+                {
+                    field[i] = name;
+                    fieldvalue[i] = "'"+value.ToString()+"'";
+                    tStr += string.Format("{0}:{1},", name, value);
+                }
+                i++;
+            }
+            tStr = "insert into gongshi(" + string.Join(",", field) + ",datetime)values(" + string.Join(",", fieldvalue) + ",'" + DateTime.Now + "');";
+
+            return tStr;
+        }
 
     }
 

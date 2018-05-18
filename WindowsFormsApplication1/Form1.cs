@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsApplication1.Dao;
 using WindowsFormsApplication1.Util;
 
 namespace WindowsFormsApplication1
@@ -19,7 +20,10 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            //加载表格数据
+            GongShiDao dao = new GongShiDao();
+            dataGridView1.DataSource = dao.list();
+
         }
         //显示表格序号
         //private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
