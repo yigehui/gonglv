@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1.Dao
             using (MySqlConnection con = new MySqlConnection(str))
             {
                 //拼接sql语句
-                string sql = "select * from gongshi";
+                string sql = "select * from gongshi order by addtime desc";
                 //准备执行sql语句的对象
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
@@ -69,7 +69,26 @@ namespace WindowsFormsApplication1.Dao
             MessageBox.Show(msg);
 
         }
+        //删除数据
+        public void del(String id)
+        {
+            int n = -1;
+            //获取文本框的值
+            //连接数据库
+            using (MySqlConnection con = new MySqlConnection(str))
+            {
+                string sql = "delete  from gongshi where id='{0}'; ";
+                string newsql = String.Format(sql, id);
+                using (MySqlCommand cmd = new MySqlCommand(newsql, con))
+                {
+                    con.Open();//打开数据库
+                    n = cmd.ExecuteNonQuery();
+                }
+            }
+            string msg = n > 0 ? "操作成功" : "操作失败";
+            MessageBox.Show(msg);
 
+        }
 
     }
 }

@@ -273,7 +273,7 @@ namespace WindowsFormsApplication1.Util
                 }
                 i++;
             }
-            tStr = "insert into gongshi(" + string.Join(",", field) + ",datetime)values(" + string.Join(",", fieldvalue) + ",'" + DateTime.Now + "');";
+            tStr = "insert into gongshi(" + string.Join(",", field) + ",addtime)values(" + string.Join(",", fieldvalue) + ",'" + DateTime.Now + "');";
 
             return tStr;
         }
