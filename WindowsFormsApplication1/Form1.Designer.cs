@@ -29,7 +29,16 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.批量添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gailv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kaili = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,14 +48,6 @@
             this.xiangduipeilv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gailvchazhi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gailvchazhi2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.批量添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.groupid,
+            this.color,
             this.id,
             this.gailv,
             this.kaili,
@@ -78,77 +80,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(843, 461);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // groupid
-            // 
-            this.groupid.DataPropertyName = "groupid";
-            this.groupid.HeaderText = "小组编号";
-            this.groupid.Name = "groupid";
-            this.groupid.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "编号";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // gailv
-            // 
-            this.gailv.DataPropertyName = "gailv";
-            this.gailv.HeaderText = "概率";
-            this.gailv.Name = "gailv";
-            this.gailv.ReadOnly = true;
-            // 
-            // kaili
-            // 
-            this.kaili.DataPropertyName = "kaili";
-            this.kaili.HeaderText = "凯利";
-            this.kaili.Name = "kaili";
-            this.kaili.ReadOnly = true;
-            // 
-            // peilv
-            // 
-            this.peilv.DataPropertyName = "peilv";
-            this.peilv.HeaderText = "赔率";
-            this.peilv.Name = "peilv";
-            this.peilv.ReadOnly = true;
-            // 
-            // peifulv
-            // 
-            this.peifulv.DataPropertyName = "peifulv";
-            this.peifulv.HeaderText = "赔付率";
-            this.peifulv.Name = "peifulv";
-            this.peifulv.ReadOnly = true;
-            // 
-            // peilvchazhi
-            // 
-            this.peilvchazhi.DataPropertyName = "peilvchazhi";
-            this.peilvchazhi.HeaderText = "赔率差值";
-            this.peilvchazhi.Name = "peilvchazhi";
-            this.peilvchazhi.ReadOnly = true;
-            // 
-            // xiangduipeilv
-            // 
-            this.xiangduipeilv.DataPropertyName = "xiangduipeilv";
-            this.xiangduipeilv.HeaderText = "相对赔付率";
-            this.xiangduipeilv.Name = "xiangduipeilv";
-            this.xiangduipeilv.ReadOnly = true;
-            // 
-            // gailvchazhi1
-            // 
-            this.gailvchazhi1.DataPropertyName = "gailvchazhi1";
-            this.gailvchazhi1.HeaderText = "概率差值1";
-            this.gailvchazhi1.Name = "gailvchazhi1";
-            this.gailvchazhi1.ReadOnly = true;
-            // 
-            // gailvchazhi2
-            // 
-            this.gailvchazhi2.DataPropertyName = "gailvchazhi2";
-            this.gailvchazhi2.HeaderText = "概率差值2";
-            this.gailvchazhi2.Name = "gailvchazhi2";
-            this.gailvchazhi2.ReadOnly = true;
+            this.dataGridView1.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView1_RowPrePaint);
             // 
             // menuStrip1
             // 
@@ -218,6 +150,85 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // groupid
+            // 
+            this.groupid.DataPropertyName = "groupid";
+            this.groupid.HeaderText = "小组编号";
+            this.groupid.Name = "groupid";
+            this.groupid.ReadOnly = true;
+            // 
+            // color
+            // 
+            this.color.DataPropertyName = "color";
+            this.color.HeaderText = "颜色";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            this.color.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "编号";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // gailv
+            // 
+            this.gailv.DataPropertyName = "gailv";
+            this.gailv.HeaderText = "概率";
+            this.gailv.Name = "gailv";
+            this.gailv.ReadOnly = true;
+            // 
+            // kaili
+            // 
+            this.kaili.DataPropertyName = "kaili";
+            this.kaili.HeaderText = "凯利";
+            this.kaili.Name = "kaili";
+            this.kaili.ReadOnly = true;
+            // 
+            // peilv
+            // 
+            this.peilv.DataPropertyName = "peilv";
+            this.peilv.HeaderText = "赔率";
+            this.peilv.Name = "peilv";
+            this.peilv.ReadOnly = true;
+            // 
+            // peifulv
+            // 
+            this.peifulv.DataPropertyName = "peifulv";
+            this.peifulv.HeaderText = "赔付率";
+            this.peifulv.Name = "peifulv";
+            this.peifulv.ReadOnly = true;
+            // 
+            // peilvchazhi
+            // 
+            this.peilvchazhi.DataPropertyName = "peilvchazhi";
+            this.peilvchazhi.HeaderText = "赔率差值";
+            this.peilvchazhi.Name = "peilvchazhi";
+            this.peilvchazhi.ReadOnly = true;
+            // 
+            // xiangduipeilv
+            // 
+            this.xiangduipeilv.DataPropertyName = "xiangduipeilv";
+            this.xiangduipeilv.HeaderText = "相对赔付率";
+            this.xiangduipeilv.Name = "xiangduipeilv";
+            this.xiangduipeilv.ReadOnly = true;
+            // 
+            // gailvchazhi1
+            // 
+            this.gailvchazhi1.DataPropertyName = "gailvchazhi1";
+            this.gailvchazhi1.HeaderText = "概率差值1";
+            this.gailvchazhi1.Name = "gailvchazhi1";
+            this.gailvchazhi1.ReadOnly = true;
+            // 
+            // gailvchazhi2
+            // 
+            this.gailvchazhi2.DataPropertyName = "gailvchazhi2";
+            this.gailvchazhi2.HeaderText = "概率差值2";
+            this.gailvchazhi2.Name = "gailvchazhi2";
+            this.gailvchazhi2.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -248,7 +259,10 @@
         private System.Windows.Forms.ToolStripMenuItem 批量添加ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除数据ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn color;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn gailv;
         private System.Windows.Forms.DataGridViewTextBoxColumn kaili;
@@ -258,8 +272,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn xiangduipeilv;
         private System.Windows.Forms.DataGridViewTextBoxColumn gailvchazhi1;
         private System.Windows.Forms.DataGridViewTextBoxColumn gailvchazhi2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -69,7 +69,9 @@ namespace WindowsFormsApplication1
             if (sender is DataGridView)
             {
                 DataGridView dgv = (DataGridView)sender;
-                if ((e.RowIndex + 1) % 2 == 0)//如果该行为2的倍数 则上色
+                if (e.RowIndex > dataGridView1.Rows.Count - 1)
+                    return;
+                if (dgv.Rows[e.RowIndex].Cells["color"].Value.ToString().Equals("1") && dataGridView1[1, e.RowIndex].GetType() == typeof(DataGridViewTextBoxCell))
                 {
                     dgv.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
                 }
@@ -130,8 +132,8 @@ namespace WindowsFormsApplication1
 
         private void 批量添加ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAddall fa = new FormAddall(this);
-            fa.Show();
+           // FormAddall fa = new FormAddall(this);
+           // fa.Show();
         }
 
         private void 删除数据ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -177,7 +179,33 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox1.SelectedValue.ToString());
+            //选中的行数  
+            int iCount = dataGridView1.SelectedRows.Count;
+            if (iCount < 1|| iCount>3)
+            {
+                MessageBox.Show("请选择同一组数据!", "错误", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                return;
+            }
+            string cellname = comboBox1.SelectedValue.ToString();
+            //string groupid = "";
+            double cellvalue = 0.00;
+            //遍历数据
+            foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
+            {
+                if (dr.IsNewRow == false)
+                {//如果不是已提交的行，默认情况下在添加一行数据成功后，DataGridView为新建一行作为新数据的插入位置
+                 //逻辑删除
+                 //dataGridView1.Rows.Remove(dr);
+                    cellvalue += Double.Parse(dr.Cells[cellname].Value.ToString());
+                   // groupid = dr.Cells[1].Value.ToString();
+
+                }
+
+            }
+            //MessageBox.Show(cellname + " " +cellvalue.ToString()+ " "+ groupid);
+           //展示查找出来的数据
+            dataGridView1.DataSource = dao.getLikeList(cellname, cellvalue);
         }
     }
 }

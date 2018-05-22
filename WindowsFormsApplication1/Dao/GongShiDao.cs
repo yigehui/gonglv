@@ -15,12 +15,21 @@ namespace WindowsFormsApplication1.Dao
          string str = "server=127.0.0.1;User Id=root;password=1234;Database=duqiu;sslmode=none; ";
 
         public List<Gongshi> list() {
+            string sql = "select '0'as color, g.* from gongshi g order by g.addtime desc";
+            return baseList(sql);
+        }
+        /// <summary>
+        /// 根据sql获得list
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        private List<Gongshi> baseList(string sql) {
             List<Gongshi> list = new List<Gongshi>();
             //通过连接字符串连接数据库
             using (MySqlConnection con = new MySqlConnection(str))
             {
                 //拼接sql语句
-                string sql = "select * from gongshi order by addtime desc";
+                
                 //准备执行sql语句的对象
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
@@ -39,7 +48,7 @@ namespace WindowsFormsApplication1.Dao
                                 for (int i = 0; i < reader.FieldCount; i++)
                                 {
                                     System.Reflection.PropertyInfo propertyInfo = type.GetProperty(reader.GetName(i));
-                                    if(propertyInfo!=null)
+                                    if (propertyInfo != null)
                                         propertyInfo.SetValue(gs, reader.GetValue(i), null);//给对应属性赋值
                                 }
                                 list.Add(gs);//添加到集合中
@@ -87,6 +96,11 @@ namespace WindowsFormsApplication1.Dao
             }
             string msg = n > 0 ? "操作成功" : "操作失败";
             MessageBox.Show(msg);
+
+        }
+        public List<Gongshi> getLikeList(string cellname,double cellvalue) {
+            string sql = "SELECT(CASE WHEN groupid IN(SELECT a.groupid FROM(SELECT groupid, (abs(sum({0}) - ({1}))) AS chazhi FROM gongshi GROUP BY groupid ORDER BY addtime DESC) a WHERE a.chazhi < {2}) THEN '1' ELSE '0' END) AS color, g.* FROM gongshi g ORDER BY addtime DESC";
+            return baseList(string.Format(sql, cellname, cellvalue, GlobleVariable.chazhi));
 
         }
 

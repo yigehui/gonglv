@@ -39,6 +39,8 @@ namespace WindowsFormsApplication1
         public double gailvchazhi1 { get; set; }//概率差值1
 
         public double gailvchazhi2 { get; set; }//概率差值2
+
+        public string color { get; set; }
         public Gongshi() {
         }
 
