@@ -205,7 +205,14 @@ namespace WindowsFormsApplication1
             }
             //MessageBox.Show(cellname + " " +cellvalue.ToString()+ " "+ groupid);
            //展示查找出来的数据
-            dataGridView1.DataSource = dao.getLikeList(cellname, cellvalue);
+            dataGridView1.DataSource = dao.getLikeList(cellname, cellvalue,textBox1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //加载表格数据
+            dataGridView1.DataSource = dao.list();
+
         }
     }
 }

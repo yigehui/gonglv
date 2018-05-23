@@ -98,9 +98,9 @@ namespace WindowsFormsApplication1.Dao
             MessageBox.Show(msg);
 
         }
-        public List<Gongshi> getLikeList(string cellname,double cellvalue) {
+        public List<Gongshi> getLikeList(string cellname,double cellvalue,string xiangsidu) {
             string sql = "SELECT(CASE WHEN groupid IN(SELECT a.groupid FROM(SELECT groupid, (abs(sum({0}) - ({1}))) AS chazhi FROM gongshi GROUP BY groupid ORDER BY addtime DESC) a WHERE a.chazhi < {2}) THEN '1' ELSE '0' END) AS color, g.* FROM gongshi g ORDER BY addtime DESC";
-            return baseList(string.Format(sql, cellname, cellvalue, GlobleVariable.chazhi));
+            return baseList(string.Format(sql, cellname, cellvalue, xiangsidu));
 
         }
 
