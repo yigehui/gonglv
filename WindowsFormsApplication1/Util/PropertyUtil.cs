@@ -258,12 +258,14 @@ namespace WindowsFormsApplication1.Util
             {
                 return tStr;
             }
-            string[] field = new string[properties.Length];
-            string[] fieldvalue = new string[properties.Length];
+            string[] field = new string[properties.Length-1];
+            string[] fieldvalue = new string[properties.Length-1];
             int i = 0;
             foreach (System.Reflection.PropertyInfo item in properties)
             {
                 string name = item.Name;
+                if (name.Equals("color"))
+                    continue;
                 object value = item.GetValue(t, null);
                 if (item.PropertyType.IsValueType || item.PropertyType.Name.StartsWith("String"))
                 {

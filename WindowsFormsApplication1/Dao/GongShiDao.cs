@@ -95,7 +95,10 @@ namespace WindowsFormsApplication1.Dao
                 }
             }
             string msg = n > 0 ? "操作成功" : "操作失败";
-            MessageBox.Show(msg);
+            if (!(n > 0))
+            {
+                MessageBox.Show(msg);
+            }
 
         }
         public List<Gongshi> getLikeList(string cellname,double cellvalue,string xiangsidu) {

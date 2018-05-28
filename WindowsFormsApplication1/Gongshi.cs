@@ -54,6 +54,7 @@ namespace WindowsFormsApplication1
             this.xiangduipeilv = getXiangduipeilv();
             this.gailvchazhi1 = getGailvchazhi1();
             this.gailvchazhi2 = getGailvchazhi2();
+            this.color = "0";
         }
 
         public double getPeilvchazhi()
