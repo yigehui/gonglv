@@ -86,8 +86,8 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            // 对第1列相同单元格进行合并
-            if (e.ColumnIndex == 1 && e.RowIndex != -1)
+            // 对第1列相同单元格进行合并 这里11是根据添加的列生成的
+            if (e.ColumnIndex == 11 && e.RowIndex != -1)
             {
                 using (
                     Brush gridBrush = new SolidBrush(this.dataGridView1.GridColor),
@@ -101,8 +101,8 @@ namespace WindowsFormsApplication1
 
                         // 画 Grid 边线（仅画单元格的底边线和右边线）
                         //   如果下一行和当前行的数据不同，则在当前的单元格画一条底边线
-                        if (e.RowIndex < dataGridView1.Rows.Count - 1 &&
-                        dataGridView1.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value.ToString() != e.Value.ToString())
+                        if ((e.RowIndex < dataGridView1.Rows.Count - 1 &&
+                        dataGridView1.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value.ToString() != e.Value.ToString()) ||   ((e.RowIndex + 1) % 3 == 0))
                             e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
                             e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
                             e.CellBounds.Bottom - 1);
@@ -114,7 +114,8 @@ namespace WindowsFormsApplication1
                         // 画（填写）单元格内容，相同的内容的单元格只填写第一个
                         if (e.Value != null)
                         {
-                            if (e.RowIndex > 0 && dataGridView1.Rows[e.RowIndex - 1].Cells[e.ColumnIndex].Value.ToString() == e.Value.ToString())
+                          
+                            if (e.RowIndex < dataGridView1.Rows.Count  && (!(e.RowIndex % 3 == 0)))
                             {
                             }
                             else

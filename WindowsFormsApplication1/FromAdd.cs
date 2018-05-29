@@ -21,6 +21,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             this.form1 = form1;
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,15 +29,19 @@ namespace WindowsFormsApplication1
             PropertyUtil util = new PropertyUtil();
             //3个数据是一组数据
             String groupId = PropertyUtil.GetId();
+            String result = this.comboBox1.Text.ToString();
             Gongshi gonshi1 = new Gongshi(PropertyUtil.StringToDouble(textBox1.Text), PropertyUtil.StringToDouble(textBox2.Text), PropertyUtil.StringToDouble(textBox3.Text), PropertyUtil.StringToDouble(textBox4.Text));
             Gongshi gonshi2 = new Gongshi(PropertyUtil.StringToDouble(textBox8.Text), PropertyUtil.StringToDouble(textBox7.Text), PropertyUtil.StringToDouble(textBox6.Text), PropertyUtil.StringToDouble(textBox5.Text));
             Gongshi gonshi3 = new Gongshi(PropertyUtil.StringToDouble(textBox12.Text), PropertyUtil.StringToDouble(textBox11.Text), PropertyUtil.StringToDouble(textBox10.Text), PropertyUtil.StringToDouble(textBox9.Text));
             gonshi1.id = PropertyUtil.GetId();
             gonshi1.groupid = groupId;
+            gonshi1.result = result;
             gonshi2.id = PropertyUtil.GetId();
             gonshi2.groupid = groupId;
+            gonshi2.result = result;
             gonshi3.id = PropertyUtil.GetId();
             gonshi3.groupid = groupId;
+            gonshi3.result = result;
 
             DataGridView d = (DataGridView)form1.Controls.Find("dataGridView1", false)[0];
             gsdao.add(gonshi1);

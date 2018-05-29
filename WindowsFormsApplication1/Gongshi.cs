@@ -41,6 +41,8 @@ namespace WindowsFormsApplication1
         public double gailvchazhi2 { get; set; }//概率差值2
 
         public string color { get; set; }
+
+        public string result { get; set; }//结果 2018-05-28
         public Gongshi() {
         }
 
