@@ -30,18 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.批量添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.groupid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.比赛结果 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +42,19 @@
             this.xiangduipeilv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gailvchazhi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gailvchazhi2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.批量添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,106 +89,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             this.dataGridView1.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView1_RowPrePaint);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.开始ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(844, 25);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 开始ToolStripMenuItem
-            // 
-            this.开始ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.添加数据ToolStripMenuItem,
-            this.批量添加ToolStripMenuItem,
-            this.导出ToolStripMenuItem,
-            this.删除数据ToolStripMenuItem});
-            this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
-            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.开始ToolStripMenuItem.Text = "开始";
-            // 
-            // 添加数据ToolStripMenuItem
-            // 
-            this.添加数据ToolStripMenuItem.Name = "添加数据ToolStripMenuItem";
-            this.添加数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.添加数据ToolStripMenuItem.Text = "添加数据";
-            this.添加数据ToolStripMenuItem.Click += new System.EventHandler(this.添加数据ToolStripMenuItem_Click);
-            // 
-            // 批量添加ToolStripMenuItem
-            // 
-            this.批量添加ToolStripMenuItem.Name = "批量添加ToolStripMenuItem";
-            this.批量添加ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.批量添加ToolStripMenuItem.Text = "批量添加";
-            this.批量添加ToolStripMenuItem.Click += new System.EventHandler(this.批量添加ToolStripMenuItem_Click);
-            // 
-            // 导出ToolStripMenuItem
-            // 
-            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.导出ToolStripMenuItem.Text = "导出";
-            this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
-            // 
-            // 删除数据ToolStripMenuItem
-            // 
-            this.删除数据ToolStripMenuItem.Name = "删除数据ToolStripMenuItem";
-            this.删除数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.删除数据ToolStripMenuItem.Text = "删除数据";
-            this.删除数据ToolStripMenuItem.Click += new System.EventHandler(this.删除数据ToolStripMenuItem_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(247, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "查找相似";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(190, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 21);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "0.05";
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(127, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "相似度：";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.label1, "选中数据的列和与数据库数据列和的差值");
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "提示";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(337, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "刷新";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupid
             // 
@@ -276,6 +177,114 @@
             this.gailvchazhi2.Name = "gailvchazhi2";
             this.gailvchazhi2.ReadOnly = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.开始ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(844, 25);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 开始ToolStripMenuItem
+            // 
+            this.开始ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加数据ToolStripMenuItem,
+            this.批量添加ToolStripMenuItem,
+            this.修改ToolStripMenuItem,
+            this.导出ToolStripMenuItem,
+            this.删除数据ToolStripMenuItem});
+            this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
+            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.开始ToolStripMenuItem.Text = "开始";
+            // 
+            // 添加数据ToolStripMenuItem
+            // 
+            this.添加数据ToolStripMenuItem.Name = "添加数据ToolStripMenuItem";
+            this.添加数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加数据ToolStripMenuItem.Text = "添加数据";
+            this.添加数据ToolStripMenuItem.Click += new System.EventHandler(this.添加数据ToolStripMenuItem_Click);
+            // 
+            // 批量添加ToolStripMenuItem
+            // 
+            this.批量添加ToolStripMenuItem.Name = "批量添加ToolStripMenuItem";
+            this.批量添加ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.批量添加ToolStripMenuItem.Text = "批量添加";
+            this.批量添加ToolStripMenuItem.Click += new System.EventHandler(this.批量添加ToolStripMenuItem_Click);
+            // 
+            // 导出ToolStripMenuItem
+            // 
+            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.导出ToolStripMenuItem.Text = "导出";
+            this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
+            // 
+            // 删除数据ToolStripMenuItem
+            // 
+            this.删除数据ToolStripMenuItem.Name = "删除数据ToolStripMenuItem";
+            this.删除数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除数据ToolStripMenuItem.Text = "删除数据";
+            this.删除数据ToolStripMenuItem.Click += new System.EventHandler(this.删除数据ToolStripMenuItem_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(0, 28);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(247, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "查找相似";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(190, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(51, 21);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "0.05";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(127, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "相似度：";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.label1, "选中数据的列和与数据库数据列和的差值");
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "提示";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(337, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "刷新";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // 修改ToolStripMenuItem
+            // 
+            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改ToolStripMenuItem.Text = "修改结果";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -302,7 +311,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 开始ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 添加数据ToolStripMenuItem;
@@ -327,6 +336,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn xiangduipeilv;
         private System.Windows.Forms.DataGridViewTextBoxColumn gailvchazhi1;
         private System.Windows.Forms.DataGridViewTextBoxColumn gailvchazhi2;
+        private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
     }
 }
 

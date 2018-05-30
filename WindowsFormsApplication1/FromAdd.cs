@@ -22,6 +22,11 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             this.form1 = form1;
             this.comboBox1.SelectedIndex = 0;
+
+            //设置新窗口的位置
+            this.Owner = form1;
+            StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(this.Owner.Location.X + 10, this.Owner.Location.Y + 10);
         }
 
         private void button1_Click(object sender, EventArgs e)

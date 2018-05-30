@@ -6,8 +6,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication1.Dao;
 using WindowsFormsApplication1.Util;
 
 namespace WindowsFormsApplication1
@@ -15,10 +17,16 @@ namespace WindowsFormsApplication1
     public partial class FormAddall : Form
     {
         private Form1 form1;
+        private GongShiDao gsdao = new GongShiDao();
         public FormAddall(Form1 form1)
         {
             InitializeComponent();
             this.form1 = form1;
+            comboBox1.SelectedIndex = 0;
+            //设置新窗口的位置
+            this.Owner = form1;
+            StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(this.Owner.Location.X + 10, this.Owner.Location.Y + 10);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -27,13 +35,30 @@ namespace WindowsFormsApplication1
             DataGridView d = (DataGridView)form1.Controls.Find("dataGridView1", false)[0];
             if (textBox1.Text.Length > 0){
                 foreach (String temp in textBox1.Lines) {
-                    if (!temp.Trim().Equals("")) {
-                        String[] result = temp.Split('\t');
-                        Gongshi gonshi = new Gongshi(PropertyUtil.StringToDouble(result[0].Trim()), PropertyUtil.StringToDouble(result[1].Trim()), PropertyUtil.StringToDouble(result[2].Trim()), PropertyUtil.StringToDouble(result[3].Trim()));
-                        util.addDateToDateGrid(d, gonshi);
+                    if (!temp.Equals("")) {
+                        String[] arg = temp.Split(' ');
+                        //3个数据是一组数据
+                        if (arg.Length != 11 || (!arg[10].Equals("")) ) {
+                             MessageBox.Show("数据格式错误");
+                            break;
+                        }
+                        String groupId = PropertyUtil.GetId();
+                        String result = this.comboBox1.Text.ToString();
+                        //排序问题这里需要倒序加入
+                        for (int i = 2; i >= 0; i--) {
+                            Gongshi gonshi = new Gongshi(PropertyUtil.StringToDouble(arg[i+3]), PropertyUtil.StringToDouble(arg[i+6]), PropertyUtil.StringToDouble(arg[i]), PropertyUtil.StringToDouble(arg[9]));
+                            gonshi.id = PropertyUtil.GetId();
+                            gonshi.groupid = groupId;
+                            gonshi.result = result;
+                            gsdao.add(gonshi);
+                            //如果出现顺序问题，添加上延时程序;
+                            //Thread.Sleep(200);
+                        }
                     }
-                   
                 }
+                //刷新datagrid
+                form1.dataGridView1.DataSource = gsdao.list();
+
             }
             else {
                 MessageBox.Show("请填写需要添加的信息");

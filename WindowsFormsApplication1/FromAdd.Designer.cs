@@ -315,6 +315,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.概率);
             this.Name = "FromAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "添加数据";
             this.ResumeLayout(false);
             this.PerformLayout();

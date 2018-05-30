@@ -61,19 +61,24 @@ namespace WindowsFormsApplication1
 
         public double getPeilvchazhi()
         {
-            return (kaili - peifulv)/gailv*100;
+            double f = (kaili - peifulv) / gailv * 100;
+                
+            return Math.Round(f, 2);
         }
         public double getXiangduipeilv()
         {
-            return peilv/kaili*gailv/100;
+            double f = peilv / kaili * gailv / 100;
+            return Math.Round(f, 2);
         }
         public double getGailvchazhi1()
         {
-            return 100/ peilv*(kaili- peifulv);
+            double f = 100 / peilv * (kaili - peifulv);
+            return Math.Round(f, 2);
         }
         public double getGailvchazhi2()
         {
-            return gailv-100/ peilv* peifulv;
+            double f = gailv - 100 / peilv * peifulv;
+            return Math.Round(f, 2);
         }
 
 

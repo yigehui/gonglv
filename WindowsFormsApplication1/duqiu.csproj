@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModify.Designer.cs">
+      <DependentUpon>FormModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\BaseMySql.cs" />
     <Compile Include="Dao\GongShiDao.cs" />
     <Compile Include="FormAddall.cs">
@@ -98,6 +104,9 @@
     <Compile Include="Util\PropertyUtil.cs" />
     <EmbeddedResource Include="FormAddall.resx">
       <DependentUpon>FormAddall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModify.resx">
+      <DependentUpon>FormModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FromAdd.resx">
       <DependentUpon>FromAdd.cs</DependentUpon>

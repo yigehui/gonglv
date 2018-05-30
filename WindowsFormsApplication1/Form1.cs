@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         private void 添加数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FromAdd fa = new FromAdd(this);
+            
             fa.Show();
         }
 
@@ -133,8 +134,8 @@ namespace WindowsFormsApplication1
 
         private void 批量添加ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // FormAddall fa = new FormAddall(this);
-           // fa.Show();
+            FormAddall fa = new FormAddall(this);
+            fa.Show();
         }
 
         private void 删除数据ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,10 +210,40 @@ namespace WindowsFormsApplication1
             dataGridView1.DataSource = dao.getLikeList(cellname, cellvalue,textBox1.Text);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             //加载表格数据
             dataGridView1.DataSource = dao.list();
+
+        }
+
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //选中的行数  
+            int iCount = dataGridView1.SelectedRows.Count;
+            if (iCount < 1 || iCount > 3)
+            {
+                MessageBox.Show("请选择同一组数据!", "错误", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                return;
+            }
+            string groupid = "";
+            //遍历数据
+            foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
+            {
+                if (dr.IsNewRow == false)
+                {
+                    groupid = dr.Cells["groupid"].Value.ToString();
+                    break;
+                }
+
+            }
+            string sql = "select DISTINCT result from gongshi where groupid = '{0}';";
+            string result = dao.select(string.Format(sql, groupid))["result"].ToString();
+            FormModify fm = new FormModify(this);
+            fm.comboBox1.Text = result;
+            fm.groupid = groupid;
+            fm.Show();
 
         }
     }
