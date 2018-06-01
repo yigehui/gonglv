@@ -36,9 +36,9 @@ namespace WindowsFormsApplication1
             if (textBox1.Text.Length > 0){
                 foreach (String temp in textBox1.Lines) {
                     if (!temp.Equals("")) {
-                        String[] arg = temp.Split(' ');
+                        String[] arg = temp.Split('\t');
                         //3个数据是一组数据
-                        if (arg.Length != 11 || (!arg[10].Equals("")) ) {
+                        if (arg.Length != 10 ) {
                              MessageBox.Show("数据格式错误");
                             break;
                         }
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
                             gonshi.result = result;
                             gsdao.add(gonshi);
                             //如果出现顺序问题，添加上延时程序;
-                            //Thread.Sleep(200);
+                            Thread.Sleep(200);
                         }
                     }
                 }
